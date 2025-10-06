@@ -1,0 +1,16 @@
+name: Nightly Fibonacci Tests
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2 * * *'
+
+jobs:
+  fibonacci-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Run fibonacci test suite
+        run: ./scripts/fibonacci_test.sh
